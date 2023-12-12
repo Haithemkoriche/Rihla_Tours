@@ -35,7 +35,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/rihla/admin/hotels.php">
-                    <i class="fas fa-plane"></i> Gestion des Hôtels
+                    <i class="fas fa-hotel"></i> Gestion des Hôtels
                 </a>
             </li>
             <li class="nav-item">

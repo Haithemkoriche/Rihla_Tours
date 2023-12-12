@@ -308,7 +308,7 @@ if (isset($_GET['delete'])) {
 
 
     </div>
-</main>
+    </main>
 <script>
     $(document).ready(function() {
     $('.editBtn').on('click', function() {
