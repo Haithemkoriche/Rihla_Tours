@@ -8,6 +8,7 @@
 <nav id="sidebar" class="col-md-4 col-lg-4 d-md-block sidebar pt-3 bg-light active" style="padding-left: 30px;">
     <!-- Close button within the sidebar -->
     <i id="closeSidebar" class="fas fa-times-circle"></i>
+     <a href="/rihla/"><i class="fas fa-arrow-left mr-2"></i>  Retour au site</a>
     <div class="d-flex justify-content-center mt-4 ">
     <img src="../assets/img/logo.png" class="img img-fluid" width="120" height="78" alt="" srcset="">
     </div>

@@ -213,19 +213,19 @@ if (isset($_GET['delete'])) {
         </div>
 
 
-        <table class="table">
+        <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Nom de l'Hôtel</th>
+                    <th>Hôtel</th>
                     <th>Emplacement</th>
                     <th>Étoiles</th>
-                    <th>Type de Chambre</th>
-                    <th>Nombre de Chambres Disponibles</th>
-                    <th>Tarif par Nuit</th>
+                    <th>Chambre</th>
+                    <th>Nb</th>
+                    <th>TPN</th>
                     <th>Description</th>
                     <th>Équipements</th>
-                    <th>Politique d'Annulation</th>
-                    <th>Options de Restauration</th>
+                    <th>Annulation</th>
+                    <th>Restauration</th>
                     <th>Actions</th>
                 </tr>
             </thead>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,10 +36,10 @@
                         <a class="nav-link" href="#">Voiture</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-primary me-2" href="#">Se Connecter</a>
+                        <a class="btn btn-outline-primary me-2" href="login.php">Se Connecter</a>
                     </li>
                     <li class="nav-item">
-                        <a class="text-white btn btn-primary btn-outline-primary" href="#">S'Inscrire</a>
+                        <a class="text-white btn btn-primary btn-outline-primary" href="registre.php">S'Inscrire</a>
                     </li>
                 </ul>
             </div>
@@ -48,8 +49,19 @@
     <!-- start slider -->
     <div class="slider" style="background-image: url('assets/img/plane.jpg'); height:calc(100vh - 79px);background-size:cover;">
         <div class="row align-items-center flex-column w-100" style="position: relative; top: 50%;">
-            <div class="col-6 btn btn-primary mt-2 mb-2">Reservez Un Vol</div>
-            <div class="col-6 btn btn-secondary">Reservez Un Hotel</div>
+        <?php if ($_SESSION['vol_success']){ ?>
+            <div id="success-message" class="alert alert-success text-center col-10">
+                L'agence va vous contacter prochainement a propos votre reservation de vol.
+            </div>
+            <?php } ?>
+        <?php if ($_SESSION['hotel_success']){ ?>
+            <div id="success-message" class="alert alert-success text-center col-10">
+                L'agence va vous contacter prochainement a propos votre reservation d'hotel.
+            </div>
+            <?php } ?>
+
+            <a href="#vol" class="col-6 btn btn-primary mt-2 mb-2">Reservez Un Vol</a>
+            <a href="#hotel" class="col-6 btn btn-secondary">Reservez Un Hotel</a>
         </div>
     </div>
     <!-- end slider -->
@@ -86,13 +98,110 @@
             </div>
         </div>
         <!-- end cards -->
+
+
+        <!-- Section Nos Destinations -->
+        <!-- Section Nos Destinations -->
+        <div class="container mt-5">
+            <h2 class="text-center mb-4">Nos Destinations</h2>
+            <div class="row">
+                <?php
+                // Connexion à la base de données
+                include 'admin/config.php';
+
+                $query = "SELECT * FROM destinations";
+                $result = $conn->query($query);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<div class='col-md-4'>";
+                        echo "<div class='card mb-4'>";
+                        echo "<img src='admin/" . $row['photos'] . "' class='card-img-top' alt='" . $row['photos'] . "' style='height: 300px;'>"; // Spécifiez la hauteur que vous souhaitez pour les images ici
+                        echo "<div class='card-body'>";
+                        echo "<h5 class='card-title'>" . $row['nom_destination'] . "</h5>";
+                        echo "<p class='card-text'>" . $row['description'] . "</p>";
+                        echo "<a href='reservation.php?id=" . $row['id'] . "' class='btn btn-primary mt-2'>Réserver</a>"; // Lien vers la page de réservation avec l'ID de la destination
+                        echo "</div></div></div>";
+                    }
+                } else {
+                    echo "<p>Aucune destination trouvée.</p>";
+                }
+                ?>
+            </div>
+        </div>
+
+
+
+        <!-- Section Acheter un Billet de Vol -->
+        <div class="container mt-5">
+            <h2 class="text-center mb-4" id="vol">Acheter un Billet de Vol</h2>
+            <form action="reservation_vol.php" method="GET">
+                <select name="vol" class="form-select mb-3">
+                    <?php
+                    $query_vols = "SELECT * FROM vols";
+                    $result_vols = $conn->query($query_vols);
+
+                    if ($result_vols->num_rows > 0) {
+                        echo '<option value=""> Acheter un Billet de Vol</option>';
+                        while ($vol = $result_vols->fetch_assoc()) {
+                            echo "<option value='" . $vol['id'] . "'>" . $vol['nom_vol'] . " - " . $vol['origine'] . "/" . $vol['destination'] . " Avec " . $vol['compagnie'] . "</option>";
+                        }
+                    } else {
+                        echo "<option value='' disabled>Aucun vol disponible</option>";
+                    }
+                    ?>
+                </select>
+                <button type="submit" class="btn btn-primary">Réserver</button>
+            </form>
+        </div>
+
+
+
+        <!-- Section Réserver un Hôtel -->
+        <div class="container mt-5 mb-5">
+            <h2 class="text-center mb-4" id="hotel">Réserver un Hôtel</h2>
+            <form action="reservation_hotel.php" method="GET">
+                <select name="hotel" class="form-select mb-3">
+                    <?php
+                    $query_hotels = "SELECT * FROM hotels";
+                    $result_hotels = $conn->query($query_hotels);
+
+                    if ($result_hotels->num_rows > 0) {
+                        echo '<option value="">Réserver un Hôtel</option>';
+
+                        while ($hotel = $result_hotels->fetch_assoc()) {
+                            echo "<option value='" . $hotel['id'] . "'>" . $hotel['nom_hotel'] . "  -  " . $hotel['emplacement'] . " " . $hotel['etoiles'] . " Etoiles</option>";
+                        }
+                    } else {
+                        echo "<option value='' disabled>Aucun hôtel disponible</option>";
+                    }
+                    ?>
+                </select>
+                <button type="submit" class="btn btn-primary">Réserver</button>
+            </form>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- start services -->
+
 
         <section class="services mt-5 mb-5">
             <div class="h2 text-center">Services</div>
             <div class="row pt-5 pb-5">
                 <div class="col-md-6 d-flex flex-column justify-content-center">
-                    <div class="h3 text-center">Resarvation Hotel</div>
+                    <div class="h3 text-center">Réservation Hotel</div>
                     <p>Réserver votre hôtel avec lastminute.com, c’est l’assurance de dénicher facilement et rapidement un établissement offrant des prestations de qualité au meilleur prix en France comme à l'étranger.
 
                         Nous tenons nos promesses de marque de dernière minute, vous pouvez réserver le jour même votre nuit d’hôtel tout simplement depuis votre téléphone mobile</p>
@@ -105,7 +214,7 @@
             <div class="row pt-3 pb-3">
                 <div class="col-md-6"> <img src="assets/img/img4.jpg" width="500" alt="" srcset="" class="img-fluid img rounded-5"></div>
                 <div class="col-md-6 d-flex flex-column justify-content-center">
-                    <div class="h3 text-center">Resarvation Hotel</div>
+                    <div class="h3 text-center">Réservation Vols</div>
                     <p>Réserver votre hôtel avec lastminute.com, c’est l’assurance de dénicher facilement et rapidement un établissement offrant des prestations de qualité au meilleur prix en France comme à l'étranger.
 
                         Nous tenons nos promesses de marque de dernière minute, vous pouvez réserver le jour même votre nuit d’hôtel tout simplement depuis votre téléphone mobile
@@ -138,8 +247,8 @@
 
     <!-- contact -->
     <section id="contact" class="mt-5 mb-5 pt-5 pb-5">
-        <div class="container"> 
-            
+        <div class="container">
+
             <div class="row ">
                 <div class="col-md-6 d-flex flex-column justify-content-center">
                     <h2>Contactez-nous</h2>
@@ -174,36 +283,36 @@
 
     <!-- end contact  -->
     <footer class="bg-light pt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Contactez-nous</h3>
-                <p>123, rue Principale</p>
-                <p>Ville, Pays</p>
-                <p>Email : exemple@example.com</p>
-                <p>Téléphone : +123 456 7890</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Contactez-nous</h3>
+                    <p>123, rue Principale</p>
+                    <p>Ville, Pays</p>
+                    <p>Email : exemple@example.com</p>
+                    <p>Téléphone : +123 456 7890</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Suivez-nous</h3>
+                    <a href="#" class="ms-2"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="ms-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="ms-2"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div class="col-md-6">
-                <h3>Suivez-nous</h3>
-                <a href="#" class="ms-2"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="ms-2"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="ms-2"><i class="fab fa-instagram"></i></a>
+            <!-- Google Maps iframe -->
+            <div class="row">
+                <div class="col-md-12">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1636780.1281857577!2d0.9400081000000005!3d36.750502900000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb3929af442c1%3A0x4aae2bf5c950da5f!2srihal%20tours!5e0!3m2!1sfr!2sdz!4v1702337450221!5m2!1sfr!2sdz" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <!-- Mention "Tous droits réservés" -->
+            <div class="row">
+                <div class="col-md-12 text-center mt-4">
+                    <p>Tous droits réservés &copy; 2023 Rihla Tours</p>
+                </div>
             </div>
         </div>
-        <!-- Google Maps iframe -->
-        <div class="row">
-            <div class="col-md-12">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1636780.1281857577!2d0.9400081000000005!3d36.750502900000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb3929af442c1%3A0x4aae2bf5c950da5f!2srihal%20tours!5e0!3m2!1sfr!2sdz!4v1702337450221!5m2!1sfr!2sdz" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-        <!-- Mention "Tous droits réservés" -->
-        <div class="row">
-            <div class="col-md-12 text-center mt-4">
-                <p>Tous droits réservés &copy; 2023 Rihla Tours</p>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 
     <!-- Inclure les fichiers JavaScript Bootstrap -->
