@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <button type="submit" class="btn text-white mt-2 " style="background-color: #c19c25;">S'Inscrire</button>
                         </div>
                     </form>
-                    <span class="text-center ms-5">Déja vous avez un compte ? <a href="login.php">connexion</a></span>
+                    <span class="text-center ms-5">Déja vous avez un compte ? <a href="client/">connexion</a></span>
                 </div>
             </div>
         </div>

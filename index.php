@@ -27,16 +27,13 @@
                         <a class="nav-link" href="#">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Vols</a>
+                        <a class="nav-link" href="/rihla#vol">Vols</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Hôtel</a>
+                        <a class="nav-link" href="/rihla#hotel">Hôtel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Voiture</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-outline-primary me-2" href="login.php">Se Connecter</a>
+                        <a class="btn btn-outline-primary me-2" href="client/">Se Connecter</a>
                     </li>
                     <li class="nav-item">
                         <a class="text-white btn btn-primary btn-outline-primary" href="registre.php">S'Inscrire</a>

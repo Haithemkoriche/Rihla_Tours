@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($user && password_verify($mot_de_passe, $user["mot_de_passe"])) {
             // Connexion réussie, rediriger vers la page d'espace utilisateur
             $_SESSION["user_id"]=$user["id"];
-            header("Location: espace_utilisateur.php");
+            header("Location: client/");
             exit();
         } else {
             $erreur_message = "Adresse e-mail ou mot de passe incorrect.";
