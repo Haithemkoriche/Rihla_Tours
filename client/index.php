@@ -100,16 +100,6 @@ if (!isset($_SESSION["user_id"])) {
                 </div>
             </div>
 
-            <!-- Notifications -->
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Mes Notifications</h5>
-                        <p class="card-text">Consultez vos notifications importantes.</p>
-                        <a href="#" class="btn btn-primary">Voir les Notifications</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <!-- end client dashboard -->
