@@ -95,7 +95,7 @@ if (!isset($_SESSION["user_id"])) {
                     <div class="card-body">
                         <h5 class="card-title">Mon Compte Client</h5>
                         <p class="card-text">Gérez votre compte client et vos informations personnelles.</p>
-                        <a href="#" class="btn btn-primary">Accéder au Compte</a>
+                        <a href="compte.php" class="btn btn-primary">Accéder au Compte</a>
                     </div>
                 </div>
             </div>

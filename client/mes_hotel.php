@@ -101,7 +101,7 @@ if (isset($_GET["reserver"])) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Accueil</a>
+                        <a class="nav-link" href="/rihla/client/">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/rihla/#vols">Vols</a>
