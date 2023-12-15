@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Accueil</a>
+                        <a class="nav-link" href="/rihla">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/rihla#vol">Vols</a>
@@ -32,12 +32,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/rihla#hotel">Hôtel</a>
                     </li>
-                    <li class="nav-item">
+                    <?php if (!isset($_SESSION["user_id"])) { ?>
+                        <li class="nav-item">
                         <a class="btn btn-outline-primary me-2" href="client/">Se Connecter</a>
                     </li>
                     <li class="nav-item">
                         <a class="text-white btn btn-primary btn-outline-primary" href="registre.php">S'Inscrire</a>
                     </li>
+                    <?php }else { ?>
+                        <li class="nav-item">
+                            <a class="text-white btn btn-success btn-outline-success me-3" href="/rihla/client">Mon Compte</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="text-white btn btn-danger btn-outline-danger" href="/rihla/client/deconnexion.php">deconnexion</a>
+                        </li>
+                        <?php }?>
                 </ul>
             </div>
         </div>
@@ -46,14 +55,9 @@
     <!-- start slider -->
     <div class="slider" style="background-image: url('assets/img/plane.jpg'); height:calc(100vh - 79px);background-size:cover;">
         <div class="row align-items-center flex-column w-100" style="position: relative; top: 50%;">
-        <?php if (@$_SESSION['vol_success']){ ?>
+        <?php if (@$_SESSION['reservation_success']){ ?>
             <div id="success-message" class="alert alert-success text-center col-10">
-                L'agence va vous contacter prochainement a propos votre reservation de vol.
-            </div>
-            <?php } ?>
-        <?php if (@$_SESSION['hotel_success']){ ?>
-            <div id="success-message" class="alert alert-success text-center col-10">
-                L'agence va vous contacter prochainement a propos votre reservation d'hotel.
+                L'agence va vous contacter prochainement a propos votre reservation.
             </div>
             <?php } ?>
 
@@ -117,7 +121,7 @@
                         echo "<div class='card-body'>";
                         echo "<h5 class='card-title'>" . $row['nom_destination'] . "</h5>";
                         echo "<p class='card-text'>" . $row['description'] . "</p>";
-                        echo "<a href='reservation.php?id=" . $row['id'] . "' class='btn btn-primary mt-2'>Réserver</a>"; // Lien vers la page de réservation avec l'ID de la destination
+                        echo "<a href='decouvrir.php?id=" . $row['id'] . "' class='btn btn-primary mt-2'>Découvrir</a>"; // Lien vers la page de réservation avec l'ID de la destination
                         echo "</div></div></div>";
                     }
                 } else {

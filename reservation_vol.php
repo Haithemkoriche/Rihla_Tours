@@ -27,7 +27,7 @@ if (isset($_FILES["proof"]) && $_FILES["proof"]["error"] == 0) {
             $stmt->bind_param("iiss", $id_utilisateur, $id_vol, $file_name, $date_reservation);
             if ($stmt->execute()) {
                 // La demande de réservation a été insérée avec succès
-                $_SESSION["vol_success"] = true;
+                $_SESSION["reservation_success"] = true;
                 header("location: index.php");
                 exit();
             } else {
