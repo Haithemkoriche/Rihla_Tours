@@ -76,7 +76,7 @@ if (isset($_GET['delete'])) {
 
 <?php include "layouts/sidebar.php"; ?>
 <!-- Content -->
-<main class="content  ms-sm-auto  mt-5">
+<main id="content" class="content active  ms-sm-auto  mt-5">
     <div class="row align-items-center justify-content-center">
         <!-- Bouton pour ouvrir le modal d'ajout -->
         <button type="button" class="btn btn-warning text-white d-flex justify-content-center" data-toggle="modal" data-target="#ajoutModal">
@@ -308,28 +308,27 @@ if (isset($_GET['delete'])) {
 
 
     </div>
-    </main>
+</main>
 <script>
     $(document).ready(function() {
-    $('.editBtn').on('click', function() {
-        var modal = $('#editModal');
-        var button = $(this); // Bouton qui a déclenché le modal
+        $('.editBtn').on('click', function() {
+            var modal = $('#editModal');
+            var button = $(this); // Bouton qui a déclenché le modal
 
-        modal.find('#id_vol_edit').val(button.data('id'));
-        modal.find('#nom_vol_edit').val(button.data('nom_vol'));
-        modal.find('#compagnie_edit').val(button.data('compagnie'));
-        modal.find('#numero_vol_edit').val(button.data('numero_vol'));
-        modal.find('#origine_edit').val(button.data('origine'));
-        modal.find('#destination_edit').val(button.data('destination'));
-        modal.find('#depart_edit').val(button.data('depart'));
-        modal.find('#arrivee_edit').val(button.data('arrivee'));
-        modal.find('#duree_edit').val(button.data('duree'));
-        modal.find('#classe_edit').val(button.data('classe'));
-        modal.find('#tarif_edit').val(button.data('tarif'));
-        modal.find('#places_disponibles_edit').val(button.data('places_disponibles'));
-        modal.find('#statut_edit').val(button.data('statut'));
+            modal.find('#id_vol_edit').val(button.data('id'));
+            modal.find('#nom_vol_edit').val(button.data('nom_vol'));
+            modal.find('#compagnie_edit').val(button.data('compagnie'));
+            modal.find('#numero_vol_edit').val(button.data('numero_vol'));
+            modal.find('#origine_edit').val(button.data('origine'));
+            modal.find('#destination_edit').val(button.data('destination'));
+            modal.find('#depart_edit').val(button.data('depart'));
+            modal.find('#arrivee_edit').val(button.data('arrivee'));
+            modal.find('#duree_edit').val(button.data('duree'));
+            modal.find('#classe_edit').val(button.data('classe'));
+            modal.find('#tarif_edit').val(button.data('tarif'));
+            modal.find('#places_disponibles_edit').val(button.data('places_disponibles'));
+            modal.find('#statut_edit').val(button.data('statut'));
+        });
     });
-});
-
 </script>
 <?php include "layouts/footer.php" ?>

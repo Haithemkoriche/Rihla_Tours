@@ -46,12 +46,12 @@
     <!-- start slider -->
     <div class="slider" style="background-image: url('assets/img/plane.jpg'); height:calc(100vh - 79px);background-size:cover;">
         <div class="row align-items-center flex-column w-100" style="position: relative; top: 50%;">
-        <?php if ($_SESSION['vol_success']){ ?>
+        <?php if (@$_SESSION['vol_success']){ ?>
             <div id="success-message" class="alert alert-success text-center col-10">
                 L'agence va vous contacter prochainement a propos votre reservation de vol.
             </div>
             <?php } ?>
-        <?php if ($_SESSION['hotel_success']){ ?>
+        <?php if (@$_SESSION['hotel_success']){ ?>
             <div id="success-message" class="alert alert-success text-center col-10">
                 L'agence va vous contacter prochainement a propos votre reservation d'hotel.
             </div>

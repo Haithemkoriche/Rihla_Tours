@@ -27,7 +27,7 @@ $nombre_destinations = $row_destinations['total_destinations'];
 ?>
 <?php include "layouts/sidebar.php"; ?>
 <!-- Content -->
-<main class="content col-md-8 ms-sm-auto col-lg-8 px-md-4 mt-5">
+<main id="content" class="content active col-md-8 ms-sm-auto col-lg-8 px-md-4 mt-5">
 <div class="container-fluid">
         <h1 class="mt-4 text-center mt-2 mb-2">Tableau de Bord</h1>
         <p class="text-center mt-5 mb-5">Bienvenue dans le système de gestion de Best Tour</p>

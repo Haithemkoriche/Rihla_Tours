@@ -9,11 +9,13 @@
         $(document).ready(function() {
             $('#sidebarCollapse').on('click', function() {
                 $('#sidebar').toggleClass('active');
+                $('#content').removeClass('active');
             });
-
+            
             // Close the sidebar when the close button is clicked
             $('#closeSidebar').on('click', function() {
                 $('#sidebar').removeClass('active');
+                $('#content').toggleClass('active');
             });
         });
     </script>

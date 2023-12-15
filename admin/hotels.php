@@ -71,7 +71,7 @@ if (isset($_GET['delete'])) {
 
 <?php include "layouts/sidebar.php"; ?>
 <!-- Content -->
-<main class="content  ms-sm-auto  mt-5">
+<main id="content" class="content active ms-sm-auto  mt-5">
     <div class="row align-items-center justify-content-center">
         <!-- Bouton pour ouvrir le modal d'ajout -->
         <button type="button" class="btn btn-warning text-white d-flex justify-content-center" data-toggle="modal" data-target="#ajoutHotelModal">

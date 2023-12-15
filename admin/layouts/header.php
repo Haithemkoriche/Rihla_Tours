@@ -21,6 +21,10 @@
             margin-left: 300px;
             /* Margin equal to sidebar width */
         }
+        .content.active {
+            
+            margin-left: 10% !important;
+        }
 
         .sidebar {
             position: fixed;

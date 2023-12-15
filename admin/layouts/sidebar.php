@@ -5,7 +5,7 @@
 </div>
 
 <!-- Sidebar -->
-<nav id="sidebar" class="col-md-4 col-lg-4 d-md-block sidebar pt-3 bg-light active" style="padding-left: 30px;">
+<nav id="sidebar" class="col-md-4 col-lg-4 d-md-block sidebar pt-3 bg-light" style="padding-left: 30px;">
     <!-- Close button within the sidebar -->
     <i id="closeSidebar" class="fas fa-times-circle"></i>
      <a href="/rihla/"><i class="fas fa-arrow-left mr-2"></i>  Retour au site</a>

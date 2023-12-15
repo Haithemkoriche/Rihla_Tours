@@ -50,7 +50,7 @@ if (!$result) {
 ?>
 <?php include "layouts/sidebar.php"; ?>
 <!-- Content -->
-<main class="content  ms-sm-auto  mt-5 " style="margin-left: 350px;">
+<main id="content" class="content active ms-sm-auto  mt-5 " style="margin-left: 350px;">
     
     <h1 class="ml-4">Gestion des clients</h1>
     <?php if (isset($_SESSION['message'])) : ?>
