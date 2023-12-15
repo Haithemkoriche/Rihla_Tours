@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/rihla#hotel">Hôtel</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/rihla/faq.php">FAQ</a>
+                    </li>
                     <?php if (!isset($_SESSION["user_id"])) { ?>
                         <li class="nav-item">
                         <a class="btn btn-outline-primary me-2" href="client/">Se Connecter</a>
