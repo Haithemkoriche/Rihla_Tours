@@ -82,7 +82,7 @@ if (!isset($_SESSION["user_id"])) {
                     <div class="card-body">
                         <h5 class="card-title">Mes Réservations de Destination</h5>
                         <p class="card-text">Consultez et gérez vos réservations de destination.</p>
-                        <a href="#" class="btn btn-primary">Voir les Réservations</a>
+                        <a href="mes_destination.php" class="btn btn-primary">Voir les Réservations</a>
                     </div>
                 </div>
             </div>
