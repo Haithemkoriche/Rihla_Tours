@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nouveau_nom = $_POST["nouveau_nom"];
     $nouveau_prenom = $_POST["nouveau_prenom"];
     $nouveau_email = $_POST["nouveau_email"];
-    $nouveau_mot_de_passe = $_POST["nouveau_mot_de_passe"];
+    $nouveau_mot_de_passe = password_hash($_POST["nouveau_mot_de_passe"], PASSWORD_DEFAULT);
     $nouvelle_date_naissance = $_POST["nouvelle_date_naissance"];
     $nouveau_genre = $_POST["nouveau_genre"];
     $nouvelle_adresse = $_POST["nouvelle_adresse"];
