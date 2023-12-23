@@ -284,8 +284,10 @@
             </div>
         </div>
     </section>
-
     <!-- end contact  -->
+
+
+    <!-- start footer -->
     <footer class="bg-light pt-5">
         <div class="container">
             <div class="row">
